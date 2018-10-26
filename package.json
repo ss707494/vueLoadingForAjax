@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel -d build src && babel -d demo src",
+    "npmpublish": "npm publish",
     "deploy": "gh-pages -d demo -r https://github.com/ss707494/vueLoadingForAjax.git"
   },
   "repository": {
