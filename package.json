@@ -5,7 +5,8 @@
   "main": "build/loadingForAjax.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel -d build src"
+    "build": "babel -d build src && babel -d demo src",
+    "deploy": "gh-pages -d demo -r https://github.com/ss707494/vueLoadingForAjax.git"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "gh-pages": "^2.0.1"
   }
 }

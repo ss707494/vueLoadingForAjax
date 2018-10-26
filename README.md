@@ -1,6 +1,8 @@
 # vue-loading-for-ajax
 在vue中添加全局状态，监听请求发送及完成情况，便于在组件中添加loading或disabled状态
 
+[demo](https://ss707494.github.io/vueLoadingForAjax/) 需翻墙
+
 ## Usage
 
 ```bash
@@ -43,7 +45,7 @@ function afterAjax() {
 
 #### isLoadingForUrl 
 ##### 参数
-url:判断该url是否在请求中
-可以传字符串（可以是部分匹配），多个可以传数组或逗号(,)拼接
+#####url:判断该url是否在请求中
+可以传字符串'getListData'（或部分匹配'ListData'），若是多个可以传数组或逗号(,)拼接
 
 
