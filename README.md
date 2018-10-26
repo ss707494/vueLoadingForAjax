@@ -41,4 +41,9 @@ function afterAjax() {
   <el-button :loading="isLoadingForUrl('getData')">提交</el-button>
 ```
 
+#### isLoadingForUrl 
+##### 参数
+url:判断该url是否在请求中
+可以传字符串（可以是部分匹配），多个可以传数组或逗号(,)拼接
+
 
