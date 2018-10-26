@@ -47,7 +47,7 @@
 <script src="./loadingForAjax.js"></script>
 <script>
   function ajax(url, time, cb) {
-    // 在 ajax中添加请求事件
+    // 在 ajax中添加请求监听事件
     const config = window.loadingForAjax.startAjax({ url })
     setTimeout(function () {
       window.loadingForAjax.stopAjax(config)
