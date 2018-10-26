@@ -105,6 +105,8 @@
       axios.interceptors.response.use(response => {
         loadingData.stopAjax(response.config);
         return response;
+      }, error => {
+        loadingData.stopAjax();
       });
     }
   } catch (e) {}
