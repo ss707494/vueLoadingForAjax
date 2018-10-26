@@ -12,7 +12,7 @@ import Vur from 'vue'
 import vueLoadingForAjax from 'vue-loading-for-ajax'
 Vue.use(vueLoadingForAjax)
 ```
-在请求中
+在请求中监听
 ```javascript
 import vueLoadingForAjax from 'vue-loading-for-ajax'
 // in ajax request (mabey in global)
@@ -23,6 +23,16 @@ function beforeAjax() {
 function afterAjax() {
   vueLoadingForAjax.stopAjax(config)
 }
+```
+在axios可以不用添加监听事件,插件中已经添加如下代码
+```javascript
+    axios.interceptors.request.use(config => {
+      return loadingData.startAjax(config)
+    })
+    axios.interceptors.response.use(response => {
+      loadingData.stopAjax(response.config)
+      return response
+    })
 ```
 在vue组件中,每一实例都有一个isLoadingForUrl方法,用来判断该url是否正在发送请求
 ```vue

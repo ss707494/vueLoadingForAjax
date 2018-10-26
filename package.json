@@ -1,6 +1,6 @@
 {
   "name": "vue-loading-for-ajax",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "vue-loading-for-ajax",
   "main": "build/loadingForAjax.js",
   "scripts": {
