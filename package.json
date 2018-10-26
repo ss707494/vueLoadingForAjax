@@ -1,0 +1,24 @@
+{
+  "name": "vue-loading-for-ajax",
+  "version": "0.0.6",
+  "description": "vue-loading-for-ajax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ss707494/essentialFood.git"
+  },
+  "keywords": [
+    "vue",
+    "loading",
+    "ajax"
+  ],
+  "author": "ss707494@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ss707494/essentialFood/issues"
+  },
+  "homepage": "https://github.com/ss707494/essentialFood#readme"
+}
