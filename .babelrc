@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "chrome >= 60"
+          ]
+        },
+        "modules": "umd"
+      }
+    ],
+    "stage-2"
+  ],
+}

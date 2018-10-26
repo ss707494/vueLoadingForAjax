@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/build/loadingForAjax.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/loadingForAjax.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/build/loadingForAjax.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/loadingForAjax.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

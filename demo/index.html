@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-loading-demo</title>
+</head>
+<body>
+<div id="app">
+    <h4>Demo</h4>
+    <code>
+        <pre>
+
+        function ajax(url, time, cb) {
+            // 在 ajax中添加请求事件
+            const config = window.loadingForAjax.startAjax({ url })
+            setTimeout(function () {
+                window.loadingForAjax.stopAjax(config)
+                typeof cb === 'function' && cb()
+            }, time)
+        }
+        // 加载插件
+        Vue.use(window.loadingForAjax.default)
+
+        new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                sendAjax1() {
+                    ajax('sendAjax1', 3000)
+                },
+                sendAjax2() {
+                    ajax('sendAjax2', 3000)
+                }
+            }
+        })
+        </pre>
+    </code>
+    <div>
+        <div v-show="isLoadingForUrl()">sending ajax</div>
+        <div v-show="isLoadingForUrl('sendAjax1')">sending ajax 1...</div>
+        <div v-show="isLoadingForUrl('sendAjax2')">sending ajax 2...</div>
+        <button @click="sendAjax1">sendAjax1</button>
+        <button @click="sendAjax2">sendAjax2</button>
+    </div>
+</div>
+<script src="./lib/vue.min.js"></script>
+<script src="../build/loadingForAjax.js"></script>
+<script>
+  function ajax(url, time, cb) {
+    // 在 ajax中添加请求事件
+    const config = window.loadingForAjax.startAjax({ url })
+    setTimeout(function () {
+      window.loadingForAjax.stopAjax(config)
+      typeof cb === 'function' && cb()
+    }, time)
+  }
+
+  // 加载插件
+  Vue.use(window.loadingForAjax.default)
+
+  new Vue({
+    el: '#app',
+    data: {},
+    methods: {
+      sendAjax1() {
+        ajax('sendAjax1', 3000)
+      },
+      sendAjax2() {
+        ajax('sendAjax2', 3000)
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
 function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -6,17 +6,19 @@ function uuidv4() {
     return v.toString(16);
   });
 }
+
 function safeGet(obj, path, defa) {
   if (!obj) return defa
   path = path.split('.')
   let prop = path.shift()
   while (prop) {
     obj = obj[prop]
-    if (obj === null) return
+    if (obj === null) return defa
     prop = path.shift()
   }
   return obj
 }
+
 function isStr(str) {
   return Object.prototype.toString.call(str) === '[object String]'
 }
@@ -39,7 +41,7 @@ export const loadingData = {
 export const startAjax = loadingData.startAjax
 export const stopAjax = loadingData.stopAjax
 
-const install = (Vue, options) => {
+const install = (Vue, option) => {
   loadingData._vm = new Vue({
     data: {
       $$state: state
@@ -50,7 +52,7 @@ const install = (Vue, options) => {
       this.$loadingForAjax = loadingData
     }
   })
-  Vue.prototype.isLoadingForUrl = function (url, options = options) {
+  Vue.prototype.isLoadingForUrl = function (url, options = option) {
     const _justify = (_self, url) => {
       return safeGet(_self, '$loadingForAjax.state.loadingInfo', []).some(e => url.some(e1 => safeGet(e, safeGet(options, 'propName', 'url')).includes(e1)))
     }
@@ -58,28 +60,26 @@ const install = (Vue, options) => {
       return !!safeGet(this, '$loadingForAjax.state.loadingInfo.length', 0)
     }
     return _justify(this, Array.isArray(url) ? url
-      : isStr(url)
-        ? url.includes(',') ? url.split(',') : [url]
-        : []
+        : isStr(url)
+            ? url.includes(',') ? url.split(',') : [url]
+            : []
     )
     return false
   }
 }
-if (axios) {
-  axios.interceptors.request.use(
-    async config => {
+try {
+  if (axios) {
+    axios.interceptors.request.use(config => {
       return loadingData.startAjax(config)
-    }
-  )
-  axios.interceptors.response.use(
-    response => {
+    })
+    axios.interceptors.response.use(response => {
       loadingData.stopAjax(response.config)
       return response
-    }
-  )
-}
+    })
+  }
+} catch (e) {}
 
-Vue.use({install})
+// Vue.use({install})
 
 export default {
   install,
