@@ -4,7 +4,7 @@
 ## Usage
 
 ```bash
-npm i licia --save
+npm i vue-loading-for-ajax --save
 ```
 在vue中加入
 ```javascript
